@@ -1,0 +1,15 @@
+IF OBJECT_ID('tblUsers') IS NULL
+BEGIN
+  CREATE TABLE [dbo].[tblUsers] (
+    UserId INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash NVARCHAR(255) NOT NULL,
+    IsActive BIT DEFAULT 1,
+    CreatedAt DATETIME DEFAULT GETDATE()
+  )
+END
+
+
+
+GO
